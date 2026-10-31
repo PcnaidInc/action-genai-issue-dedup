@@ -36,7 +36,7 @@ jobs:
     permissions:
       contents: read
       models: read
-      issues: write
+      issues: read
     steps:
       # actions/checkout v4.2.2
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -50,5 +50,5 @@ jobs:
           state: open
           max_duplicates: 3
           tokens_per_issue: 500
-          label_as_duplicate: true
+          label_as_duplicate: false
           debug: "*"

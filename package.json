@@ -11,7 +11,7 @@
     "docker:start": "docker run -e GITHUB_TOKEN pelikhan-action-genai-issue-dedup",
     "act:install": "gh extension install https://github.com/nektos/gh-act",
     "act": "gh act",
-    "lint": "npx --yes prettier --write genaisrc/",
+    "lint": "prettier --check genaisrc/",
     "fix": "genaiscript scripts fix",
     "typecheck": "genaiscript scripts compile",
     "configure": "genaiscript configure action genai-issue-dedup",
@@ -19,6 +19,10 @@
     "action": "genaiscript run genai-issue-dedup",
     "dev": "DEBUG=script* INPUT_GITHUB_ISSUE=6 INPUT_LABEL_AS_DUPLICATE=true genaiscript run genai-issue-dedup",
     "start": "genaiscript run genai-issue-dedup --github-workspace --pull-request-comment --no-run-trace --no-output-trace",
-    "release": "sh release.sh"
+    "release": "sh release.sh",
+    "format": "prettier --write genaisrc/"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
   }
 }
