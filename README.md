@@ -80,9 +80,11 @@ triggered manually via `workflow_dispatch`). It uses least-privilege
 runs.
 
 The `test` job checks out the repository, installs dependencies with `npm ci`,
-and runs the repository's existing `npm run lint` (Prettier), `npm run
-typecheck` (GenAIScript script compilation) and `npm test` commands. The
-`test-action` job then exercises the action itself against the repository.
+and runs `npm run lint` to reject Prettier formatting differences using the
+repository-pinned version, followed by `npm run typecheck` (GenAIScript script
+compilation) and `npm test`. The `test-action` job then exercises the action
+against the repository with read-only issue access and duplicate labeling
+disabled.
 
 ## Development
 
